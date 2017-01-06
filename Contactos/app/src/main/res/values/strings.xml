@@ -8,5 +8,7 @@
     <string name="hint_Descripcion">Descripcion Contacto</string>
     <string name="btn_siguiente">Siguiente</string>
     <string name="err_msg_name">Ingrese su nombre completo</string>
+    <string name="err_msg_nacimiento">Informe su fecha de nacimiento</string>
+    <string name="err_msg_telefono">Ingrese su numero de telefono</string>
     <string name="err_msg_email">Ingrese email valido</string>
 </resources>
