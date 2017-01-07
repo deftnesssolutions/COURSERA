@@ -25,28 +25,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int dia, mes, ano;
     Button siguiente;
     TextInputLayout til_nombre,til_nacimiento,til_telefono,til_email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        capturarObjetos();
+        Intent extras = getIntent();
+        if(extras !=null)
+        {
+            Bundle recibirExtras = extras.getExtras();
+            if(recibirExtras !=null)
+            {
+                capturarObjetos();
+                nombre.setText(recibirExtras.getString(getResources().getString(R.string.extra_nombre)));
+                fecha.setText(recibirExtras.getString(getResources().getString(R.string.extra_nacimiento)));
+                telefono.setText(recibirExtras.getString(getResources().getString(R.string.extra_telefono)));
+                email.setText(recibirExtras.getString(getResources().getString(R.string.extra_email)));
+                descripcion.setText(recibirExtras.getString(getResources().getString(R.string.extra_descripcion)));
+            }
+        }
 
+        capturarObjetos();
         calendario.setOnClickListener(this);
-        siguiente = (Button) findViewById(R.id.btn_siguiente);
         siguiente.setOnClickListener(this);
 
     }
 
-    public void controlError()
+    public void controlError()//Metodo que implementa la escucha de los InputText para contralar el TextChange
     {
         nombre.addTextChangedListener(new MyTextWatcher(nombre));
         fecha.addTextChangedListener(new MyTextWatcher(fecha));
         telefono.addTextChangedListener(new MyTextWatcher(telefono));
         email.addTextChangedListener(new MyTextWatcher(email));
     }
-    public void capturarObjetos()
+    public void capturarObjetos()//Metodo para instanciar los objetos del activity
     {
+        siguiente = (Button) findViewById(R.id.btn_siguiente);
         calendario = (ImageButton) findViewById(R.id.btn_setdate);
         nombre= (EditText) findViewById(R.id.et_nombre);
         fecha = (EditText) findViewById(R.id.et_nacimiento);
@@ -61,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     @Override
-    public void onClick(View v) {
-        if(v==calendario)
+    public void onClick(View v) {//Metodo que escucha la activación de cualquier objeto en el activity
+        if(v==calendario)//Si el objeto activado es el boton calendario
         {
             final Calendar c = Calendar.getInstance();
             dia=c.get(Calendar.DAY_OF_MONTH);
@@ -78,20 +93,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             datePickerDialog.show();
         }
 
-        if(v==siguiente)
+        if(v==siguiente)//Si el objeto activado es el boton Siguiente
         {
-
-
             capturarObjetos();
             controlError();
             submitForm();
-
         }
     }
 
     /**
      * Validating form
      */
+    //Metodo para ejercer el control del envio del formulario chequeando que los campos no esten vacios y que los datos sean correctos
     private void submitForm() {
         if (!validateName()) {
             return;
@@ -120,7 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra(getResources().getString(R.string.extra_email), email.getText().toString());
         intent.putExtra(getResources().getString(R.string.extra_descripcion), descripcion.getText().toString());
         startActivity(intent);
-        Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();
+        finish();
+        //Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();
     }
 
     private void requestFocus(View view) {
@@ -191,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return true;
     }*/
-
+    // ####  Clase que implementa TextWatcher para controlar el rellenado correcto de los campos
     private class MyTextWatcher implements TextWatcher{
         private View view;
 
