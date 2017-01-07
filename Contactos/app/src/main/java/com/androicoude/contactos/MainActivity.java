@@ -24,11 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         calendario = (ImageButton) findViewById(R.id.btn_setdate);
-        fecha = (EditText) findViewById(R.id.et_nacimiento);
         nombre= (EditText) findViewById(R.id.et_nombre);
-        telefono = (EditText) findViewById(R.id.et_telefono);
-        email = (EditText) findViewById(R.id.et_email);
-        descripcion = (EditText) findViewById(R.id.et_descripcion);
+        fecha = (EditText) findViewById(R.id.et_nacimiento);
 
         calendario.setOnClickListener(this);
         siguiente = (Button) findViewById(R.id.btn_siguiente);
@@ -56,12 +53,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v==siguiente)
         {
+
+            telefono = (EditText) findViewById(R.id.et_telefono);
+            email = (EditText) findViewById(R.id.et_email);
+            descripcion = (EditText) findViewById(R.id.et_descripcion);
+
             Intent intent = new Intent(MainActivity.this,EditContacto.class);
-            intent.putExtra("Key_Nombre", nombre.getText().toString());
-            intent.putExtra("Key_DN", fecha.getText().toString());
-            intent.putExtra("Key_Telefono", telefono.getText().toString());
-            intent.putExtra("Key_Email", email.getText().toString());
-            intent.putExtra("Key_Descripcion", descripcion.getText().toString());
+            intent.putExtra(getResources().getString(R.string.extra_nombre), nombre.getText().toString());
+            intent.putExtra(getResources().getString(R.string.extra_nacimiento), fecha.getText().toString());
+            intent.putExtra(getResources().getString(R.string.extra_telefono), telefono.getText().toString());
+            intent.putExtra(getResources().getString(R.string.extra_email), email.getText().toString());
+            intent.putExtra(getResources().getString(R.string.extra_descripcion), descripcion.getText().toString());
             startActivity(intent);
         }
     }

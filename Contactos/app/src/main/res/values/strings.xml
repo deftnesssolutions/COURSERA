@@ -13,10 +13,16 @@
     <string name="err_msg_email">Ingrese email válido</string>
 
     <string name="titulo_edit">Confirmar Datos</string>
-    <string name="label_edit_nombre"> Nombre </string>
     <string name="label_edit_Nacimiento">Fecha Nacimiento:</string>
     <string name="label_edit_Telefono">Tel. </string>
     <string name="label_edit_Email">Email:</string>
     <string name="label_edit_Descripcion">Descripción:</string>
     <string name="btn_editar">Editar Datos</string>
+
+    <string name="extra_nombre">Nombre</string>
+    <string name="extra_nacimiento">Nacimiento</string>
+    <string name="extra_telefono">Telefono</string>
+    <string name="extra_email">Email</string>
+    <string name="extra_descripcion">Descripcion</string>
+
 </resources>

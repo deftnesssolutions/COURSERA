@@ -86,7 +86,6 @@
                 android:id="@+id/et_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:hint="@string/hint_Descripcion" />
         </android.support.design.widget.TextInputLayout>
 
