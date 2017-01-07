@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_contacto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/paddingLeft"
+    android:paddingRight="@dimen/paddingRight"
+    android:paddingTop="@dimen/paddingTop">>
+
+    <TextView
+        android:id="@+id/tv_Titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_edit"
+        android:textAlignment="center"
+        android:textSize="@dimen/textzize_Titulo"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:elegantTextHeight="true"/>
+    <TextView
+        android:id="@+id/tv_Nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_edit_nombre"
+        android:textSize="@dimen/textzize_Edicion"
+        android:textStyle="bold"
+        android:fontFamily="cursive"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_Nacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_edit_Nacimiento"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+        <TextView
+            android:id="@+id/tv_extraNancimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_Telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_edit_Telefono"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+        <TextView
+            android:id="@+id/tv_ExtraTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_edit_Email"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+        <TextView
+            android:id="@+id/tv_extraEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_Descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_edit_Descripcion"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+        <TextView
+            android:id="@+id/tv_extraDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textzize_Edicion"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+
+    </LinearLayout>
+
+    <Button android:id="@+id/btn_editar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_editar"
+        android:theme="@style/MiBotonRaised"
+        android:layout_marginTop="@dimen/margingTop40"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:textSize="@dimen/textzize_btnEditar"
+        android:textColor="@android:color/white"
+        />
+
+</LinearLayout>
