@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">ReciclerView</string>
+    <string name="app_name">Contactos</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_nombre">Nombre Completo</string>
+    <string name="hint_fechanacimiento">Fecha Nacimiento</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_Descripcion">Descripción Contacto</string>
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="err_msg_name">Ingrese su nombre completo</string>
+    <string name="err_msg_nacimiento">Informe su fecha de nacimiento</string>
+    <string name="err_msg_telefono">Ingrese su numero de teléfono</string>
+    <string name="err_msg_email">Ingrese email válido</string>
+
+    <string name="titulo_edit">Confirmar Datos</string>
+    <string name="label_edit_Nacimiento">Fecha Nacimiento:</string>
+    <string name="label_edit_Telefono">Tel. </string>
+    <string name="label_edit_Email">Email:</string>
+    <string name="label_edit_Descripcion">Descripción:</string>
+    <string name="btn_editar">Editar Datos</string>
+
+    <string name="extra_nombre">Nombre</string>
+    <string name="extra_nacimiento">Nacimiento</string>
+    <string name="extra_telefono">Telefono</string>
+    <string name="extra_email">Email</string>
+    <string name="extra_descripcion">Descripcion</string>
+
 </resources>
