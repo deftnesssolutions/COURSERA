@@ -3,6 +3,10 @@ package com.androicoude.reciclerview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,23 +18,25 @@ import java.util.StringTokenizer;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Contacto> contactos;
+    private RecyclerView listaContactos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        contactos = new ArrayList<Contacto>();
+        listaContactos = (RecyclerView) findViewById(R.id.rvContactos);
+        /*LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);*/
+        GridLayoutManager glm = new GridLayoutManager(this,2);
+        listaContactos.setLayoutManager(glm);
+        inicializarListaContacto();
+        inicializarAdaptador();
 
-        contactos.add(new Contacto("Gustavo Ovelar","23345323","guove@gmail.com",R.drawable.mecanico) );
-        contactos.add(new Contacto("Jeremias Santacruz","123456789","jeremias@gmail.com",R.drawable.icono) );
-        contactos.add(new Contacto("Jose Leguizamon","234567123","jose@gmail.com",R.drawable.nave) );
-        contactos.add(new Contacto("Roque Pereira","890567432","roque@gmail.com",R.drawable.paleta) );
-
-        ArrayList<String> nombresContacto  = new ArrayList<>();
+        /*ArrayList<String> nombresContacto  = new ArrayList<>();
         for (Contacto contacto:contactos)
         {
             nombresContacto.add(contacto.getNombre());
-        }
+        }*/
         /*
         ListView lstContactos = (ListView)findViewById(R.id.lstContactos);
         lstContactos.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,nombresContacto));
@@ -48,5 +54,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
+    }
+    public void inicializarListaContacto()
+    {
+        contactos = new ArrayList<Contacto>();
+
+        contactos.add(new Contacto("Gustavo Ovelar","23345323","guove@gmail.com",R.drawable.mecanico) );
+        contactos.add(new Contacto("Jeremias Santacruz","123456789","jeremias@gmail.com",R.drawable.icono) );
+        contactos.add(new Contacto("Jose Leguizamon","234567123","jose@gmail.com",R.drawable.nave) );
+        contactos.add(new Contacto("Roque Pereira","890567432","roque@gmail.com",R.drawable.paleta) );
+    }
+
+    public void inicializarAdaptador()
+    {
+        ContactoAdaptador adaptador = new ContactoAdaptador(contactos);
+        listaContactos.setAdapter(adaptador);
     }
 }

@@ -21,9 +21,10 @@
         android:text="Hello World!" />-->
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvContacots"
+        android:id="@+id/rvContactos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
