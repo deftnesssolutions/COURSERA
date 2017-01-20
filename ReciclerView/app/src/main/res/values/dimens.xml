@@ -10,4 +10,5 @@
     <dimen name="textzize_Edicion">20sp</dimen>
     <dimen name="textzize_btnEditar">20dp</dimen>
     <dimen name="corner_radius_cardview">4dp</dimen>
+    <dimen name="elevacion_actionbar">4dp</dimen>
 </resources>

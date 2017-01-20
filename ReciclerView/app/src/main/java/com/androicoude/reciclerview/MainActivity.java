@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
+        setSupportActionBar(miActionBar);
         listaContactos = (RecyclerView) findViewById(R.id.rvContactos);
-        /*LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);*/
-        GridLayoutManager glm = new GridLayoutManager(this,2);
-        listaContactos.setLayoutManager(glm);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+       // GridLayoutManager glm = new GridLayoutManager(this,2);
+        listaContactos.setLayoutManager(llm);
         inicializarListaContacto();
         inicializarAdaptador();
 
@@ -67,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void inicializarAdaptador()
     {
-        ContactoAdaptador adaptador = new ContactoAdaptador(contactos);
+        ContactoAdaptador adaptador = new ContactoAdaptador(contactos,this);
         listaContactos.setAdapter(adaptador);
     }
 }

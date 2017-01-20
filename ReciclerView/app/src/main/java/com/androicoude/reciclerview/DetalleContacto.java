@@ -3,6 +3,7 @@ package com.androicoude.reciclerview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,18 +17,22 @@ public class DetalleContacto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_contacto);
 
+        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
+        setSupportActionBar(miActionBar);
         Intent extras = getIntent();
         if(extras !=null)
         {
             Bundle recibirExtras = extras.getExtras();
             if(recibirExtras !=null)
             {
+                String xnombre= recibirExtras.getString("nombre");
+                String xtelefono = recibirExtras.getString("telefono");
+                String xemail = recibirExtras.getString("email");
                 capturarObjetos();
-                nombre.setText(recibirExtras.getString(getResources().getString(R.string.extra_nombre)));
-                //nacimiento.setText(recibirExtras.getString(getResources().getString(R.string.extra_nacimiento)));
-                telefono.setText(recibirExtras.getString(getResources().getString(R.string.extra_telefono)));
-                email.setText(recibirExtras.getString(getResources().getString(R.string.extra_email)));
-                //descripcion.setText(recibirExtras.getString(getResources().getString(R.string.extra_descripcion)));
+                nombre.setText(xnombre);
+                telefono.setText(xtelefono);
+                email.setText(xemail);
+
             }
         }
 
