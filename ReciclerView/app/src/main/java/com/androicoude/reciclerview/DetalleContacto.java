@@ -19,6 +19,7 @@ public class DetalleContacto extends AppCompatActivity {
 
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent extras = getIntent();
         if(extras !=null)
         {
