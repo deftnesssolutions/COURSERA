@@ -7,9 +7,9 @@ package com.androicoude.petagram;
 public class Mascota {
     private int foto;
     private String nombre;
-    private int raiting;
+    private String raiting;
 
-    public Mascota(int foto,String nombre,int reiting){
+    public Mascota(int foto,String nombre,String reiting){
         this.foto=foto;
         this.nombre=nombre;
         this.raiting=reiting;
@@ -31,11 +31,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public int getRaiting() {
+    public String getRaiting() {
         return raiting;
     }
 
-    public void setRaiting(int raiting) {
+    public void setRaiting(String raiting) {
         this.raiting = raiting;
     }
 }

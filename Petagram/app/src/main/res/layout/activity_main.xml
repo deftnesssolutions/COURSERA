@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/logo"
-    >
 
-            <Button android:id="@+id/btnAcceso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_acceso"
-            android:theme="@style/MiBotonRaised"
-            android:layout_marginTop="@dimen/marginT0p_btnAcces"
-            android:layout_marginLeft="@dimen/marginLeft_btnAcces"
-            android:textColor="@android:color/white"
-            />
+    tools:context="com.androicoude.petagram.MainActivity">
+
+    <include android:id="@+id/miActionBar"
+        layout="@layout/actionbar">
+    </include>
 
 
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMascota"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/miActionBar"
+        />
 
 
-
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
