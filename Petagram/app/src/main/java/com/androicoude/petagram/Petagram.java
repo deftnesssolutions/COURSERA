@@ -1,10 +1,20 @@
 package com.androicoude.petagram;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,6 +31,10 @@ public class Petagram extends AppCompatActivity {
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
 
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setLogo(R.drawable.dog_footprint_52);
+
         listaMascotas = (RecyclerView) findViewById(R.id.rvMascota);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -31,6 +45,40 @@ public class Petagram extends AppCompatActivity {
         inicializarAdaptador();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_favorito:
+                action(R.string.action_favorito);
+                return true;
+            case R.id.action_edit:
+                action(R.string.action_edit);
+                return true;
+            case R.id.action_settings:
+                action(R.string.action_settings);
+                return true;
+            case R.id.action_help:
+                action(R.string.action_help);
+                return true;
+            case R.id.action_about:
+                action(R.string.action_about);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void action(int resid) {
+        //Toast.makeText(this, getText(resid), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Proximos a ser implementado", Toast.LENGTH_SHORT).show();
+    }
     public void inicializarListaMascota()
     {
         mascotas = new ArrayList<Mascota>();
