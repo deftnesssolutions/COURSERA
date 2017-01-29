@@ -9,7 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:uiOptions="splitActionBarWhenNarrow">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,15 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Petagram"
+        <activity
+            android:name=".Petagram"
             android:parentActivityName=".MainActivity">
-            <!--Soporte para versiones 4.0 o anteriores-->
+
+            <!-- Soporte para versiones 4.0 o anteriores -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-
+                android:value=".MainActivity"></meta-data>
+        </activity>
+        <activity android:name=".Mfavoritos"
+            android:parentActivityName=".Petagram">
+            <!-- Soporte para versiones 4.0 o anteriores -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Petagram">
             </meta-data>
-
         </activity>
     </application>
 
