@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
         listaContactos = (RecyclerView) findViewById(R.id.rvContactos);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
+        LinearLayoutManager llm = new LinearLayoutManager();
         llm.setOrientation(LinearLayoutManager.VERTICAL);
        // GridLayoutManager glm = new GridLayoutManager(this,2);
         listaContactos.setLayoutManager(llm);

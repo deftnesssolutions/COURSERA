@@ -10,4 +10,7 @@
     <dimen name="marginT0p_btnAcces">150dp</dimen>
     <dimen name="marginLeft_btnAcces">50dp</dimen>
     <dimen name="corner_radius_cardview">4dp</dimen>
+    <dimen name="textzize_Titulo">15dp</dimen>
+    <dimen name="foto_heigt">300dp</dimen>
+    <dimen name="foto_with">20dp</dimen>
 </resources>
