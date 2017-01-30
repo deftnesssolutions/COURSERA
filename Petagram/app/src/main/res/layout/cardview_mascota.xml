@@ -45,7 +45,7 @@
                     android:id="@+id/tvNombreCV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+
                     android:fontFamily="cursive"
                     android:textSize="@dimen/textzize_Titulo"
                     android:text="@string/hin_nombre"
@@ -65,9 +65,9 @@
                     android:id="@+id/tvRaitingCV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:textStyle="italic"
                     android:fontFamily="cursive"
-                    android:textSize="@dimen/textzize_Titulo"
+                    android:textSize="@dimen/textzize_Raiting"
                     android:text="5"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -78,6 +78,7 @@
                     android:layout_height="38dp"
                     android:background="@drawable/dogbone_color"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:theme="@style/MiBotonRaised"
                     />
 
             </LinearLayout>

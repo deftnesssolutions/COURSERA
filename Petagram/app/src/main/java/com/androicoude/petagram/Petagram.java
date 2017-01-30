@@ -1,5 +1,6 @@
 package com.androicoude.petagram;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
@@ -21,8 +22,10 @@ import java.util.ArrayList;
 public class Petagram extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
+    ArrayList<Mascota> mascotaHardcodeadas ;
     private RecyclerView listaMascotas;
-    public String raiting="0";
+    public String raiting ="0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +43,18 @@ public class Petagram extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(llm);
-
+        mascotaHardcodeadas  = new ArrayList<Mascota>();
         inicializarListaMascota();
+        Intent extras = getIntent();
+        if(extras !=null)
+        {
+            Bundle recibirExtras = extras.getExtras();
+            if(recibirExtras !=null)
+            {
+                mascotas = recibirExtras.getParcelableArrayList("mascotas");
+            }
+        }
+
         inicializarAdaptador();
     }
 
@@ -52,11 +65,13 @@ public class Petagram extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_favorito:
-                action(R.string.action_favorito);
+                //action(R.string.action_favorito);
+                llamarFavoritos();
                 return true;
             case R.id.action_edit:
                 action(R.string.action_edit);
@@ -93,5 +108,26 @@ public class Petagram extends AppCompatActivity {
     {
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,this);
         listaMascotas.setAdapter(adaptador);
+    }
+
+    public void llamarFavoritos()
+    {
+        cargarMascotaHardcodeadas();
+        Intent intent = new Intent(Petagram.this,Mfavoritos.class);
+        intent.putExtra("favoritos",mascotaHardcodeadas);
+        intent.putExtra("mascotas",mascotas);
+        startActivity(intent);
+        //finish();
+    }
+
+    public void cargarMascotaHardcodeadas()
+    {
+        for (Mascota mascota:mascotas)
+        {
+            if(mascota.getRaiting()!= "0" && mascota.getRaiting()!= null)
+            {
+                mascotaHardcodeadas.add(mascota);
+            }
+        }
     }
 }
