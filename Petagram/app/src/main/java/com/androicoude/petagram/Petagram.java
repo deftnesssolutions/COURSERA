@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Petagram extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
-    ArrayList<Mascota> mascotaHardcodeadas  = new ArrayList<Mascota>();
+    ArrayList<Mascota> mascotaHardcodeadas ;
     private RecyclerView listaMascotas;
     public String raiting ="0";
 
@@ -43,7 +43,7 @@ public class Petagram extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(llm);
-
+        mascotaHardcodeadas  = new ArrayList<Mascota>();
         inicializarListaMascota();
         Intent extras = getIntent();
         if(extras !=null)
@@ -117,7 +117,7 @@ public class Petagram extends AppCompatActivity {
         intent.putExtra("favoritos",mascotaHardcodeadas);
         intent.putExtra("mascotas",mascotas);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     public void cargarMascotaHardcodeadas()

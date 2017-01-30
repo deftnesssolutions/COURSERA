@@ -85,7 +85,7 @@ public class Mfavoritos extends AppCompatActivity {
         Intent intent = new Intent(Mfavoritos.this,Petagram.class);
         intent.putExtra("mascotas",mascotas);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
 
