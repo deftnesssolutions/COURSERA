@@ -46,12 +46,12 @@ public class Mfavoritos extends AppCompatActivity {
             Bundle recibirExtras = extras.getExtras();
             if(recibirExtras !=null)
             {
-                mascotasFavoritos = recibirExtras.getParcelableArrayList("favoritos");
                 mascotas = recibirExtras.getParcelableArrayList("mascotas");
+                mascotasFavoritos = recibirExtras.getParcelableArrayList("favoritos");
+
             }
         }
 
-        //cargarMascotaHardcodeadas();
        inicializarAdaptador();
     }
 
@@ -85,7 +85,7 @@ public class Mfavoritos extends AppCompatActivity {
         Intent intent = new Intent(Mfavoritos.this,Petagram.class);
         intent.putExtra("mascotas",mascotas);
         startActivity(intent);
-        //finish();
+        finish();
     }
 
 
