@@ -25,13 +25,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"></meta-data>
         </activity>
-        <activity android:name=".Mfavoritos"
-            android:parentActivityName=".Petagram">
-            <!-- Soporte para versiones 4.0 o anteriores -->
+        <activity android:name=".Mfavoritos">
+           <!--            &lt;!&ndash; Soporte para versiones 4.0 o anteriores &ndash;&gt;
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Petagram">
-            </meta-data>
+            </meta-data>-->
         </activity>
     </application>
 

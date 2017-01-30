@@ -117,14 +117,16 @@ public class Petagram extends AppCompatActivity {
         intent.putExtra("favoritos",mascotaHardcodeadas);
         intent.putExtra("mascotas",mascotas);
         startActivity(intent);
-        //finish();
+        finish();
     }
 
     public void cargarMascotaHardcodeadas()
     {
+
         for (Mascota mascota:mascotas)
         {
-            if(mascota.getRaiting()!= "0" && mascota.getRaiting()!= null)
+            String xr = mascota.getRaiting();
+            if(xr!= "0")
             {
                 mascotaHardcodeadas.add(mascota);
             }
