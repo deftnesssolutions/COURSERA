@@ -18,7 +18,8 @@ import java.util.ArrayList;
 
 public class Mfavoritos extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
+    ArrayList<Mascota> mascotas,mascotasFavoritos;
+
     private RecyclerView mascotaFavoritos;
 
     @Override
@@ -45,6 +46,7 @@ public class Mfavoritos extends AppCompatActivity {
             Bundle recibirExtras = extras.getExtras();
             if(recibirExtras !=null)
             {
+                mascotasFavoritos = recibirExtras.getParcelableArrayList("favoritos");
                 mascotas = recibirExtras.getParcelableArrayList("mascotas");
             }
         }
@@ -60,11 +62,30 @@ public class Mfavoritos extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: //hago un case por si en un futuro agrego mas opciones
+                Log.i("ActionBar", "Atrás!");
+                volverAtras();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     public void inicializarAdaptador()
     {
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,this);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotasFavoritos,this);
         mascotaFavoritos.setAdapter(adaptador);
+    }
+
+    public void volverAtras()
+    {
+        Intent intent = new Intent(Mfavoritos.this,Petagram.class);
+        intent.putExtra("mascotas",mascotas);
+        startActivity(intent);
+        finish();
     }
 
 

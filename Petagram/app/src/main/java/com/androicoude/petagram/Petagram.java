@@ -25,7 +25,6 @@ public class Petagram extends AppCompatActivity {
     ArrayList<Mascota> mascotaHardcodeadas  = new ArrayList<Mascota>();
     private RecyclerView listaMascotas;
     public String raiting ="0";
-    public boolean flagFavorito = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,17 @@ public class Petagram extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(llm);
 
-        //if(!flagFavorito)
-            inicializarListaMascota();
+        inicializarListaMascota();
+        Intent extras = getIntent();
+        if(extras !=null)
+        {
+            Bundle recibirExtras = extras.getExtras();
+            if(recibirExtras !=null)
+            {
+                mascotas = recibirExtras.getParcelableArrayList("mascotas");
+            }
+        }
+
         inicializarAdaptador();
     }
 
@@ -63,9 +71,7 @@ public class Petagram extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_favorito:
                 //action(R.string.action_favorito);
-                flagFavorito=true;
                 llamarFavoritos();
-
                 return true;
             case R.id.action_edit:
                 action(R.string.action_edit);
@@ -107,16 +113,18 @@ public class Petagram extends AppCompatActivity {
     public void llamarFavoritos()
     {
         cargarMascotaHardcodeadas();
-        Intent intent = new Intent(getApplicationContext(),Mfavoritos.class);
-        intent.putExtra("mascotas",mascotaHardcodeadas);
+        Intent intent = new Intent(Petagram.this,Mfavoritos.class);
+        intent.putExtra("favoritos",mascotaHardcodeadas);
+        intent.putExtra("mascotas",mascotas);
         startActivity(intent);
+        finish();
     }
 
     public void cargarMascotaHardcodeadas()
     {
         for (Mascota mascota:mascotas)
         {
-            if(mascota.getRaiting()!= "0")
+            if(mascota.getRaiting()!= "0" && mascota.getRaiting()!= null)
             {
                 mascotaHardcodeadas.add(mascota);
             }
